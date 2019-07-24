@@ -4,7 +4,11 @@ import Card from "./components/Card";
 
 import Wrapper from "./components/Wrapper";
 
+<<<<<<< HEAD
 import NavBar from "./components/NavBar";
+=======
+import Header from "./components/Header";
+>>>>>>> 1a26f2bf09abdd041011c3ce26af0b76d834eeb3
 
 import cards from "./cards.json";
 
