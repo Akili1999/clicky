@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-const Header = props => (
-  <div className="header">
+const NavBar = props => (
+  <div className="navbar">
     <div className="title">{props.children}</div>
     <div className="scores">
       CurrentScore: {props.score} TopScore: {props.highscore}
@@ -10,4 +10,4 @@ const Header = props => (
   </div>
 );
 
-export default Header;
+export default NavBar;

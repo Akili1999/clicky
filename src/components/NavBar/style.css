@@ -1,8 +1,9 @@
-.header {
+.navbar {
     width: 100%;
     font-size: 2rem;
-    color: #2A77AE;
+    color: whitesmoke;
     margin-bottom: 10px;
+    background-color: #8A2BE2;
   }
   
   .title {
