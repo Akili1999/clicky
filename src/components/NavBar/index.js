@@ -2,10 +2,10 @@ import React from "react";
 import "./style.css";
 
 const NavBar = props => (
-  <div className="navbar">
+  <div className="navbar navbar-light bg-black" id="nav">
     <div className="title">{props.children}</div>
     <div className="scores">
-      CurrentScore: {props.score} TopScore: {props.highscore}
+      Current Score: {props.score} Top Score: {props.highscore}
     </div>
   </div>
 );

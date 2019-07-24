@@ -1,9 +1,12 @@
-.navbar {
+#nav {
     width: 100%;
     font-size: 2rem;
     color: whitesmoke;
     margin-bottom: 10px;
-    background-color: #8A2BE2;
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    background-color: black
   }
   
   .title {
