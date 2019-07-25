@@ -8,14 +8,14 @@ import NavBar from "./components/NavBar";
 
 import artists from "./artists.json";
 
-class App extends Component {
+class App extends Component { //setting the state of our app
     state = {
       artists,
       score: 0,
       highscore: 0
     };
 
-    losses = () => {
+    losses = () => { //this function handles losses, if the new score is more than the highscore then the highscore is displayed
         if (this.state.score > this.state.highscore) {
           this.setState({highscore: this.state.score}, function() {
           });
@@ -27,14 +27,14 @@ class App extends Component {
         return true;
       }
 
-      clickNumber = id => {
+      clickNumber = id => { //We add 1 to each card, which initally has a number of 0. Any card that is clicked more than once will result in a game over
         this.state.artists.find((j, i) => {
           if (j.id === id) {
             if(artists[i].number === 0){
               artists[i].number = artists[i].number + 1;
               this.setState({score : this.state.score + 1}, function(){
               });
-              this.state.artists.sort(() => Math.random() - 0.5)
+              this.state.artists.sort(() => Math.random() - 0.5) //mildly sorting the cards upon click
               return true; 
             } else {
               this.losses();
@@ -43,7 +43,7 @@ class App extends Component {
         });
       }
 
-      render() {
+      render() { //rendering the cards, and assigning them all of the properties we need
         return (
           <Wrapper>
             <NavBar score={this.state.score} highscore={this.state.highscore}>Music Clicky</NavBar>
