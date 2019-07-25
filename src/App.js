@@ -18,7 +18,6 @@ class App extends Component {
     losses = () => {
         if (this.state.score > this.state.highscore) {
           this.setState({highscore: this.state.score}, function() {
-            console.log(this.state.highscore);
           });
         }
         this.state.artists.forEach(card => {
@@ -34,7 +33,6 @@ class App extends Component {
             if(artists[i].number === 0){
               artists[i].number = artists[i].number + 1;
               this.setState({score : this.state.score + 1}, function(){
-                console.log(this.state.score);
               });
               this.state.artists.sort(() => Math.random() - 0.5)
               return true; 
