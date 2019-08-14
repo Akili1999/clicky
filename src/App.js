@@ -29,16 +29,19 @@ class App extends Component { //setting the state of our app
       }
 
       cardValue = id => {
-        const artists = this.state.artists.filter(artist => artist.id !== id);
-        let artistIndex = artists.number;
-        if(artistIndex === 0){
-          artistIndex = artistIndex + 1;
-          this.setState({score: this.state.score + 1}, function shuffle(){
-            this.state.artists.sort(() => Math.random() - 1)
-          })
-        } else {
-          this.losses()
-        }
+        this.state.artists.find((index) => {
+          if (index.id === id) {
+            let artistIndex = artists.number;
+            if(artistIndex === 0){ 
+              artistIndex = artistIndex + 1;
+              this.setState({score: this.state.score + 1}, function shuffle(){
+                this.state.artists.sort(() => Math.random() - 1)
+              })
+            } else {
+              this.losses()
+            }
+          }
+        })
       }
 
       render() { //rendering the cards, and assigning them all of the properties we need
