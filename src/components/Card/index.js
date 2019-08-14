@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 const Card = props => (
-  <div className="card" onClick={() => props.clickNumber(props.id)}>
+  <div className="card" onClick={() => props.cardValue(props.id)}>
     <div className="img-container">
       <img alt={props.name} src={props.image} />
     </div>
