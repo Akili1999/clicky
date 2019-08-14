@@ -47,7 +47,7 @@ class App extends Component { //setting the state of our app
             <NavBar score={this.state.score} highscore={this.state.highscore}>Music Clicky</NavBar>
             {this.state.artists.map(card => (
               <Card
-                cardValue={this.clickValue}
+                cardValue={this.cardValue}
                 id={card.id}
                 key={card.id}
                 image={card.image}
