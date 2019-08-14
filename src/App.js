@@ -28,6 +28,18 @@ class App extends Component { //setting the state of our app
         return true;
       }
 
+      cardValue = id => {
+        const artists = this.state.artists.filter(artist => artist.id !== id);
+        let artistIndex = artists.number;
+        if(artistIndex === 0){
+          artistIndex = artistIndex + 1;
+          this.setState({score: this.state.score + 1}, function shuffle(){
+            this.state.artists.sort(() => Math.random() - 1)
+          })
+        } else {
+          this.losses()
+        }
+      }
 
       render() { //rendering the cards, and assigning them all of the properties we need
         return (
@@ -35,7 +47,7 @@ class App extends Component { //setting the state of our app
             <NavBar score={this.state.score} highscore={this.state.highscore}>Music Clicky</NavBar>
             {this.state.artists.map(card => (
               <Card
-                clickNumber={this.clickNumber}
+                cardValue={this.clickValue}
                 id={card.id}
                 key={card.id}
                 image={card.image}
