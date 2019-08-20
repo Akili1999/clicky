@@ -11,12 +11,21 @@ import artists from "./artists.json";
 
 class App extends Component { //setting the state of our app
     state = {
-      artists, // This is our array of objects that is stored within a json file
+      artists, // This is our array of objects that is stored within a json file, which includes the name, id, and image for each card
       score: 0, // This is the starting score
       highscore: 0, // This is the starting highscore
       guessed: [] // This is an array which will house all of our guessed pictures
     };
     
+    shuffle() { // This will shuffle both arrays so that all cards on the screen will move
+      const shuffled = []; // This will store our new array positions after we've shuffled artists
+      while (this.state.artists.length > 0){
+       shuffled.push(this.state.artists.splice(Math.floor(Math.random() * this.state.artists.length), 1)[0]) // Shuffles the array, and pushes the objects into the shuffled array
+      }
+      return shuffled; // returning the shuffled array
+    };
+
+
     NewHigh = () => { // If the score the user reached is higher than the current high score, then we will change
       // The high score to the previous record
       if (this.state.score > this.state.highscore) {
@@ -24,19 +33,7 @@ class App extends Component { //setting the state of our app
       }
     };
 
-    shuffle() { // This will shuffle both arrays so that all cards on the screen will move
-      this.state.artists.sort(() => Math.random() - 1);
-      this.state.guessed.sort(() => Math.random() - 1);
-    };
-
-    handleOnClick = id => {
-      if(this.state.guessed.includes(id)){
-        this.setState({
-          guessed: [],
-          score: 0
-        })
-      }
-    }
+  
 
 
 
