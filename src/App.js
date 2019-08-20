@@ -33,11 +33,24 @@ class App extends Component { //setting the state of our app
       }
     };
 
-  
+    handleOnClick(clickedCard) {
+      const shuffledArray = this.shuffle();
+      if (!this.state.guessed.includes(clickedCard)){
+        this.state.score++;
+        shuffledArray.push(clickedCard);
+      }
+      this.state.guessed.push(clickedCard);
 
+      if (this.state.guessed.includes(clickedCard)){
+        this.state.score = 0;
+        return this.setState({
+          score: this.state.score,
+          highscore: this.state.highscore,
+          guessed: []
+        })
+      }
+    }
 
-
-      
       render() { //rendering the cards, and assigning them all of the properties we need
         return (
           <Wrapper>
