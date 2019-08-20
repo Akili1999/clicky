@@ -17,20 +17,20 @@ class App extends Component { //setting the state of our app
       guessed: [] // This is an array which will house all of our guessed pictures
     };
     
-    shuffle() { // This will shuffle both arrays so that all cards on the screen will move
-      const shuffled = []; // This will store our new array positions after we've shuffled artists
-      while (this.state.artists.length > 0){
-       shuffled.push(this.state.artists.splice(Math.floor(Math.random() * this.state.artists.length), 1)[0]) // Shuffles the array, and pushes the objects into the shuffled array
-      }
-      return shuffled; // returning the shuffled array
+    shuffle = id => { // This will shuffle both arrays so that all cards on the screen will move
+
+    if(this.state.guessed.includes(id)){
+      this.setState({ guessed: [], score: 0 });
+      return;
+    } else {
+      this.state.guessed.push(id)
+    }
     };
 
 
     NewHigh = () => { // If the score the user reached is higher than the current high score, then we will change
       // The high score to the previous record
-      if (this.state.score > this.state.highscore) {
         this.setState({highscore: this.state.score})
-      }
     };
 
     handleOnClick(clickedCard) {
